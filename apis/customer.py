@@ -25,7 +25,7 @@ class Customer(Resource):
 
 #put
 #delete
-#Shashank K R
+
 
 
 

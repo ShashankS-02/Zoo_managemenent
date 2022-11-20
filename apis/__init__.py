@@ -8,5 +8,5 @@ api = Api(
     description="Zoo management apis"
 )
 
-api.add_namespace(ticketing_api, path="/ticketing/")
-api.add_namespace(customer_api, path="/customer/")
+api.add_namespace(ticketing_api, path="/ticketing")
+api.add_namespace(customer_api, path="/registration")

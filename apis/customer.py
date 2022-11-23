@@ -13,7 +13,6 @@ customer = api.model("Customer", {"cus_id": fields.Integer(required=True, descri
 customer1 = {"cus_id": 100, "name": "Shashank", "ph_no": 6361377960, "cus_date": "2022-06-12"}
 
 
-
 @api.route("/customer")
 class Customer(Resource):
     @api.doc("Returning one customers details")
@@ -38,7 +37,3 @@ class Customer(Resource):
 
 
 # delete
-
-
-
-

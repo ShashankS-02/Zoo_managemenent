@@ -11,7 +11,7 @@ class CustomerModel(db.Model):
     email_id = db.Column(db.String(100), nullable=False)
 
 
-class CustomerSchema(ma.SQLAlchemyAutoSchema):  # Marshmallow
+class CustomerSchema(ma.SQLAlchemyAutoSchema):  # Marshmallow / SQLAlchemyAutoSchema automatically creates a column on the table
     class Meta:
         model = CustomerModel
         load_instance = True

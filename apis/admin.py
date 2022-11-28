@@ -3,7 +3,8 @@ from flask_restx import Namespace, Resource, fields
 
 api = Namespace("Admin", description="Details of the Admin")
 
-admin = api.model("Admin", {"admin_name": fields.String(required=True, description="Admin's User Name"),
+admin = api.model("Admin", {"admin_id": fields.Integer(required=True, description="Admin Identifier"),
+                            "admin_name": fields.String(required=True, description="Admin's User Name"),
                             "admin_pass": fields.String(required=True, description="Admin's password")
                             })
 

@@ -30,7 +30,8 @@ class Customer(Resource):
     @api.doc("")
     @api.expect(customer, validate=True)
     def put(self):
-        customer_db = CustomerModel(customer_name=request.json["name"], phone_number=request.json["ph_no"], email_id=request.json["email"])
+        customer_db = CustomerModel(customer_name=request.json["name"], phone_number=request.json["ph_no"],
+                                    email_id=request.json["email"])
         db.session.add(customer_db)  # adds rows to the connected database table
         db.session.commit()  # commit the changes to the row
         print(request.json)

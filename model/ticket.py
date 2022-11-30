@@ -7,7 +7,7 @@ class TicketModel(db.model):
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     customer_name = db.Column(db.String(80), nullable=False)
     phone_number = db.Column(db.String(10), nullable=False)
-    booked_date = db.Column(db.Date, nullable=False)
+    booked_date = db.Column(db.String(10), nullable=False)
 
 
 class TicketSchema(ma.SQLAlchemyAutoSchema):

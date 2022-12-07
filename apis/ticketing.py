@@ -18,7 +18,7 @@ ticket1 = {'id': "123", 'cus_name': "Nithin", 'ph_no': 9972736303, 'date': '2022
 @api.route("/get_ticket_list")
 class TicketList(Resource):
     @api.doc("Returning list of tickets")
-    @api.marshal_list_with(ticket)
+    @api.marshal_list_with(list_ticket)
     def get(self):
         ticket_query = TicketModel.querry.all()
         ticket_schema = TicketSchema(many=True)

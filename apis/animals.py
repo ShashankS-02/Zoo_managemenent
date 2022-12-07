@@ -1,0 +1,38 @@
+from flask_restx import Namespace, Resource, fields
+from flask import request
+from model import db
+from model.animal import AnimalModel, AnimalSchema
+
+api = Namespace("Animals",description="Animal Details")
+
+animal = api.model("Animal",{ "ani_id": fields.Integer(required=True , description="Animal id"),
+                              "cage_id": fields.Integer(required=True , description="Cage id"),
+                              "ani_name":fields.String(required=True , description="Animal name"),
+                              "ani_breed": fields.String(required=True, description="Breed to which animal belongs to")})
+
+
+animal1 = {"ani_id": 10, "cage id": 5, "ani_name": "Lion", "ani_breed": "African lion Panthera Leo" }
+
+
+@api.route("/animals")
+class animals(Resource):
+    @api.doc("Returning animal details")
+    def get(self):
+        get_animal_query = AnimalModel.query.all()
+        animal_scheme = AnimalSchema(many=True)
+        animal_list = animal_schema.dump(get_animal_query)
+        return animal_list
+
+    @api.doc("")
+    @api.expert(animal, validate=True)
+    def post(self):
+        print(request.json)
+
+
+    @api.doc("")
+    @api.expert(animal, validate=True)
+    def put(self):
+        animal_db = AnimalModel(animal_name=request.json["name"],animal_id=request.json["ani_id"], cage_id=request.json["cage_id"],animal_breed=request.json["ani_breed"])
+        db.session.add(animal_db)
+        db.session.commit()
+        print(request.json)

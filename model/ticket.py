@@ -2,7 +2,7 @@ from model import db
 from model import ma
 
 
-class TicketModel(db.model):
+class TicketModel(db.Model):
     __tablename__ = "tickets_details"
     ticket_id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     customer_name = db.Column(db.String(80), nullable=False)
@@ -12,5 +12,5 @@ class TicketModel(db.model):
 
 class TicketSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = TicketModel
+        model_ticket = TicketModel
         load_instance = True

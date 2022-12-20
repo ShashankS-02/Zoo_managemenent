@@ -2,7 +2,7 @@ from model import db
 from model import ma
 
 
-class AdminModel(db.model):
+class AdminModel(db.Model):
     __tablename__ = "admin"
     admin_id = db.Column(db.Integer, primary_key=True, nullable=False)
     admin_name = db.Column(db.String, nullable=False)
@@ -11,5 +11,5 @@ class AdminModel(db.model):
 
 class AdminSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = AdminModel
+        model_admin = AdminModel
         load_instance = True

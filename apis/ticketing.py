@@ -11,14 +11,14 @@ ticket = api.model('Ticket', {'ticket_id': fields.Integer(required=True, descrip
                               'date': fields.Date(required=True, description="Booking date")
                               })   # Nothing known about QR
 
-list_ticket = [{'id': "001", 'cus_name': "Shashank"}, {'id': "002", "cus_name": "Rakshith"}]
+# list_ticket = [{'id': "001", 'cus_name': "Shashank"}, {'id': "002", "cus_name": "Rakshith"}]
 ticket1 = {'id': "123", 'cus_name': "Nithin", 'ph_no': 9972736303, 'date': '2022-06-28'}
 
 
 @api.route("/get_ticket_list")
 class TicketList(Resource):
     @api.doc("Returning list of tickets")
-    @api.marshal_list_with(list_ticket)
+    # @api.marshal_list_with(ticket_list)
     def get(self):
         ticket_query = TicketModel.querry.all()
         ticket_schema = TicketSchema(many=True)

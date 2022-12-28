@@ -5,7 +5,7 @@ from flask_cors import CORS
 from flask import render_template
 
 mysql_username = "root"
-mysql_password = "Shandilya#2002"
+mysql_password = "Shashank1118krs!"
 mysql_host = "localhost"
 mysql_port = "3306"
 mysql_db = "ZMS"

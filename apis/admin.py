@@ -28,7 +28,7 @@ class Admin(Resource):
         # admin_db = AdminModel(admin_name=request.json["admin_name"], admin_password=request.json["admin_pass"])
 
         if(request.json["admin_name"] == admin1["admin_name"] and request.json["admin_pass"] == admin1["admin_pass"]):
-            return {"success" : True}
+            return {"success": True}
         else:
             return {"success": False}
         # db.session.add(admin_db)  # adds rows to the connected database table

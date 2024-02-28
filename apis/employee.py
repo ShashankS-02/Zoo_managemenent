@@ -6,8 +6,8 @@ from model.employee import EmployeeModel, EmployeeSchema
 api = Namespace("Employee", description="Employee details")
 
 employee = api.model("Employee", {"emp_id": fields.Integer(required=True, description="Employee id"),
-                                  "name": fields.String(required=True, description="Employee name"),
-                                  "emp_age": fields.Integer(required=True, description="Employee age"),
+                                  "emp_name": fields.String(required=True, description="Employee name"),
+                                  "emp_age": fields.String(required=True, description="Employee age"),
                                   "emp_role": fields.String(required=True, description="Employee phone number"),
                                   "email": fields.String(required=True, description="Employee email")})
 
@@ -27,17 +27,21 @@ class Employee(Resource):
     @api.doc("")
     @api.expect(employee, validate=True)
     def post(self):
-        print(request.json)
+            ids = str(request.json['emp_id'])
+            db.engine.execute("delete from employee where employee_id = " + ids)
+            return {"success": True}
 
     @api.doc("")
     @api.expect(employee, validate=True)
     def put(self):
-        employee_db = EmployeeModel(employee_name=request.json["name"], employee_id=request.json["emp_id"],
-                                    employee_age=request.json["emp_age"], employee_role=request.json["emp_role"],
+        employee_db = EmployeeModel(employee_name=request.json["emp_name"], employee_id=request.json["emp_id"],
+                                    employee_age=int(request.json["emp_age"]), employee_role=request.json["emp_role"],
                                     email_id=request.json["email"])
         db.session.add(employee_db)
         db.session.commit()
         print(request.json)
+        return {"success": True}
+
 
 
 

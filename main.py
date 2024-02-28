@@ -2,10 +2,9 @@ from flask import Flask
 from apis import api
 from model import db
 from flask_cors import CORS
-from flask import render_template
 
 mysql_username = "root"
-mysql_password = "Shashank1118krs!"
+mysql_password = "Shandilya#2002"  # Shashank1118krs!
 mysql_host = "localhost"
 mysql_port = "3306"
 mysql_db = "ZMS"

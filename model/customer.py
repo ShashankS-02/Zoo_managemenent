@@ -9,6 +9,7 @@ class CustomerModel(db.Model):
     customer_name = db.Column(db.String(80), nullable=False)
     phone_number = db.Column(db.String(10), nullable=False)
     email_id = db.Column(db.String(100), nullable=False)
+    num_of_tickets = db.Column(db.Integer, nullable=False)
 
 
 class CustomerSchema(ma.SQLAlchemyAutoSchema):  # Marshmallow / SQLAlchemyAutoSchema automatically creates a column on the table
